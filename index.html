@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("hello world")
+
+        function getComputerChoice() {
+            let x = Math.random()*30;
+            let computerChoice = 
+            (x<10) ? "PAPER" :
+            (x<20) ? "SCISSOR" : "ROCK";
+            return computerChoice;
+        }
+
+        function getHumanChoice() {
+            let humanChoice = prompt("Choose Paper, Scissor or Rock")
+            humanChoice = humanChoice.toUpperCase();
+            return humanChoice;
+        }
+
+        let humanScore = 0;
+        let computerScore = 0;
+
+        function playRound(humanChoice,computerChoice) {
+        if (humanChoice===computerChoice) {
+            console.log("even");
+        } else if (humanChoice=="PAPER" && computerChoice =="ROCK") {
+            humanScore++;
+        } else if (humanChoice=="ROCK" && computerChoice=="SCISSOR") {
+            humanScore++;
+        } else if (humanChoice=="SCISSOR" && computerChoice=="PAPER") {
+            humanScore++;
+        } else {
+            computerScore++;
+        }
+        console.log(humanChoice, computerChoice, humanScore, computerScore)
+
+        }
+        
+    
+  
+        function playGame() {
+            for (let i = 0; i <5; i++) {
+                playRound(getHumanChoice(), getComputerChoice())
+            }
+        }
+
+        playGame()
+
+    </script>
+</body>
+</html>
